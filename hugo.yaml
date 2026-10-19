@@ -1,0 +1,17 @@
+baseURL: "https://traysonr.github.io/engineering-portfolio/"
+locale: "en-us"
+title: "Engineering Fieldnotes"
+enableRobotsTXT: true
+disableKinds: ["taxonomy", "term"]
+
+pagination:
+  pagerSize: 12
+
+params:
+  description: "Engineering projects, design notes, experiments, and build logs by Trayson Rubio."
+  author: "Trayson Rubio"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

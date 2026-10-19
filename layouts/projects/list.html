@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $archive := site.GetPage "projects" }}{{ if ne .File.Path $archive.File.Path }}
+<article class="project-page">
+  <p class="back-link"><a href="{{ site.Home.RelPermalink }}#projects">&larr; Project index</a></p>
+  <header class="project-header"><p class="eyebrow"><span class="live-dot"></span> PROJECT LOG <span class="eyebrow-divider">/</span> STARTED {{ .Date.Format "2006.01" }}</p><h1>{{ .Title }}</h1><p class="lead">{{ .Description }}</p>{{ with .Params.tags }}<ul class="tags">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}</header>
+  {{ with .Resources.GetMatch .Params.hero }}<figure class="hero-image"><img src="{{ .RelPermalink }}" alt="{{ $.Title }} project overview"></figure>{{ end }}
+  <div class="project-intro content-prose">{{ .Content }}</div>
+  <section class="updates"><div class="section-head"><div><p class="eyebrow">BUILD NOTES</p><h2>Project log</h2></div><span class="section-count">CHRONOLOGICAL</span></div>
+  {{ $updates := .RegularPagesRecursive.ByDate }}
+  {{ range $updates }}<article class="update"><div class="update-date"><span class="timeline-dot"></span><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 JAN 2006" }} <span>{{ .Date.Format "15:04" }}</span></time></div><div class="update-content"><h3>{{ .Title }}</h3><div class="content-prose">{{ .Content }}</div></div></article>{{ else }}<p>Project updates will appear here.</p>{{ end }}
+  </section>
+</article>
+{{ else }}
+<section class="intro compact"><div class="intro-main"><p class="eyebrow">DESIGN &middot; BUILD &middot; MEASURE</p><h1>{{ .Title }}</h1><p class="intro-copy">A working notebook of engineering projects.</p></div></section>
+<section class="project-section" id="projects"><div class="section-head"><div><p class="eyebrow">PROJECT ARCHIVE</p><h2>Project log</h2></div></div><div class="project-list">{{ range sort $archive.Sections "Date" "desc" }}{{ $thumb := .Resources.GetMatch .Params.thumbnail }}<article class="project-card"><a class="project-thumb" href="{{ .RelPermalink }}">{{ with $thumb }}<img src="{{ .RelPermalink }}" alt="" loading="lazy">{{ end }}</a><div class="project-card-body"><div class="card-meta"><span class="project-date">{{ .Date.Format "2006 / 01" }}</span><span class="card-type">ENGINEERING LOG</span></div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p class="project-description">{{ .Description }}</p><div class="card-bottom"><ul class="tags">{{ range .Params.tags }}<li>{{ . }}</li>{{ end }}</ul><a class="read-link" href="{{ .RelPermalink }}">Read project <span aria-hidden="true">&rarr;</span></a></div></div></article>{{ end }}</div></section>
+{{ end }}
+{{ end }}
