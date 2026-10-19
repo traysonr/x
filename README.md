@@ -34,4 +34,4 @@ Markdown images, tables, links, and fenced code are supported. Use Hugo?s `{{< y
 
 ## GitHub Pages
 
-This repository is deployed at `https://traysonr.github.io/engineering-portfolio/`. The workflow builds Hugo on each push to `main` and publishes the output to the `gh-pages` branch. GitHub Pages serves that branch. If you fork this project, update `baseURL` in `hugo.yaml` and the source link in the site footer.
+This repository is deployed at `https://traysonr.github.io/x/`. The workflow builds Hugo on each push to `main` and publishes the output to the `gh-pages` branch. GitHub Pages serves that branch. If you fork this project, update `baseURL` in `hugo.yaml` and the source link in the site footer.
