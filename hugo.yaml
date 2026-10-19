@@ -1,6 +1,6 @@
 baseURL: "https://traysonr.github.io/x/"
 locale: "en-us"
-title: "Engineering Fieldnotes"
+title: "Trayson Rubio"
 enableRobotsTXT: true
 disableKinds: ["taxonomy", "term"]
 
@@ -8,7 +8,7 @@ pagination:
   pagerSize: 12
 
 params:
-  description: "Engineering projects, design notes, experiments, and build logs by Trayson Rubio."
+  description: "Engineering projects, experiments, and build logs."
   author: "Trayson Rubio"
 
 markup:
