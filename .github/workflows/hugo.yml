@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: "pages"
+  group: "hugo-${{ github.ref }}"
   cancel-in-progress: true
 
 defaults:
