@@ -7,7 +7,7 @@
   <div class="project-intro content-prose">{{ .Content }}</div>
   <section class="updates"><div class="section-head"><div><p class="eyebrow">BUILD NOTES</p><h2>Project log</h2></div><span class="section-count">CHRONOLOGICAL</span></div>
   {{ $updates := .RegularPagesRecursive.ByDate }}
-  {{ range $updates }}<article class="update"><div class="update-date"><span class="timeline-dot"></span><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 JAN 2006" }} <span>{{ .Date.Format "15:04" }}</span></time></div><div class="update-content"><h3>{{ .Title }}</h3><div class="content-prose">{{ .Content }}</div></div></article>{{ else }}<p>Project updates will appear here.</p>{{ end }}
+  {{ range $updates }}<article class="update"><div class="update-date"><span class="timeline-dot"></span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></div><div class="update-content"><h3>{{ .Title }}</h3><div class="content-prose">{{ .Content }}</div></div></article>{{ else }}<p>Project updates will appear here.</p>{{ end }}
   </section>
 </article>
 {{ else }}
