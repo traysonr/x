@@ -1,0 +1,12 @@
+{{ $thumbnail := .Resources.GetMatch .Params.thumbnail }}
+<article class="project-card">
+  <a class="project-thumb" href="{{ .RelPermalink }}" aria-label="Open {{ .Title }}">
+    {{ with $thumbnail }}<img src="{{ .RelPermalink }}" alt="" loading="lazy">{{ else }}<div class="thumb-placeholder">PROJECT IMAGE</div>{{ end }}
+  </a>
+  <div class="project-card-body">
+    <div class="card-meta"><span class="project-date">{{ .Date.Format "2006 / 01" }}</span><span class="card-type">{{ .Params.cardLabel | default "ENGINEERING LOG" }}</span></div>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <p class="project-description">{{ .Description }}</p>
+    <div class="card-bottom"><ul class="tags">{{ range .Params.tags }}<li>{{ . }}</li>{{ end }}</ul><a class="read-link" href="{{ .RelPermalink }}">{{ if eq .Params.cardLabel "SITE GUIDE" }}Open guide{{ else }}Read project{{ end }} <span aria-hidden="true">&rarr;</span></a></div>
+  </div>
+</article>

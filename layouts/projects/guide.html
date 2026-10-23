@@ -1,0 +1,8 @@
+{{ define "main" }}
+<article class="project-page guide-page">
+  <p class="back-link"><a href="{{ site.Home.RelPermalink }}#projects">&larr; Project index</a></p>
+  <header class="project-header"><p class="eyebrow">SITE GUIDE <span class="eyebrow-divider">/</span> HUGO COMPONENTS</p><h1>{{ .Title }}</h1><p class="lead">{{ .Description }}</p>{{ with .Params.tags }}<ul class="tags">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}</header>
+  {{ with .Resources.GetMatch .Params.hero }}<figure class="hero-image"><img src="{{ .RelPermalink }}" alt="{{ $.Title }} page anatomy diagram">{{ with $.Params.heroCaption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}</figure>{{ end }}
+  <div class="content-prose guide-content">{{ .Content }}</div>
+</article>
+{{ end }}

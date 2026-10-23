@@ -1,5 +1,5 @@
 ---
-title: "First sweep: make the radio do the boring part"
+title: "First sweep: let the radio do the boring work"
 date: 2026-10-04
 ---
 

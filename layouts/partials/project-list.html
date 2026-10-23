@@ -1,0 +1,5 @@
+{{ $sections := .Sections }}
+{{ $guides := where $sections "Params.cardLabel" "eq" "SITE GUIDE" }}
+{{ $projects := where $sections "Params.cardLabel" "ne" "SITE GUIDE" }}
+{{ range sort $projects "Date" "desc" }}{{ partial "project-card.html" . }}{{ else }}<p>No projects yet. Add a project bundle under <code>content/projects/</code>.</p>{{ end }}
+{{ range sort $guides "Date" "desc" }}{{ partial "project-card.html" . }}{{ end }}

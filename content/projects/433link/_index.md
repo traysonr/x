@@ -1,6 +1,6 @@
 ---
 title: "433Link: a PIC-to-Pi radio link"
-description: "A small custom packet link between a Raspberry Pi 3 and a dsPIC33CK64MC105, using inexpensive 433 MHz ASK/OOK modules. The first milestone is deliberately one way: get a known PIC packet into the Pi, validate it, then work toward ACKs and retries."
+description: "A PIC-to-Raspberry Pi 433 MHz link, with a defined packet format and CRC-checked Python reference tools."
 date: 2026-09-27
 tags: ["Embedded systems", "Raspberry Pi", "dsPIC33", "Python", "433 MHz RF"]
 thumbnail: "hero.svg"

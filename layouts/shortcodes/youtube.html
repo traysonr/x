@@ -1,0 +1,7 @@
+{{- $id := .Get "id" -}}
+{{- if not (findRE `^[A-Za-z0-9_-]{11}$` $id) -}}{{- errorf "youtube shortcode needs an 11-character video id at %s" .Position -}}{{- end -}}
+{{- $title := .Get "title" | default "Embedded YouTube video" -}}
+<figure class="video-embed">
+  <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{{ $id }}" title="{{ $title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end -}}
+</figure>

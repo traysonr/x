@@ -3,7 +3,12 @@ title: "Faster sweeps, better questions for each hit"
 date: 2026-10-17
 ---
 
-The serial scan was doing a lot of retuning just to ask whether anything was there. Broad/Fast now groups the 2,652 configured channel centers into 97 wide windows, checks each for about 0.128 seconds, and extracts up to the three strongest channels when a window crosses threshold. On paper that’s about 12.4 seconds of probe time for a pass, before USB/FFT work, tuner settling, and the five-second triggered dwells.
+The serial scan was doing a lot of retuning just to ask whether anything was there. Broad/Fast now groups the configured channels into wide windows. For this profile, that means:
+
+- **2,652** channel centers checked in **97** windows
+- **0.128 seconds** per window probe
+- Up to **3** strongest channels kept from a triggered window
+- About **12.4 seconds** of probe time per pass, before tuner settling, USB/FFT work, and five-second triggered dwells
 
 It makes the survey much quicker, with a tradeoff: a brief burst can fall between probes, and only the strongest few channels in a busy window make it to full capture. This is a way to find leads, not continuous coverage.
 

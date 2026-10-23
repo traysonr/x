@@ -13,20 +13,7 @@
   </div>
   <div class="project-list">
     {{ $projects := site.GetPage "projects" }}
-    {{ range sort $projects.Sections "Date" "desc" }}
-      {{ $thumb := .Resources.GetMatch .Params.thumbnail }}
-      <article class="project-card">
-        <a class="project-thumb" href="{{ .RelPermalink }}" aria-label="Open {{ .Title }}">
-          {{ with $thumb }}<img src="{{ .RelPermalink }}" alt="" loading="lazy">{{ else }}<div class="thumb-placeholder">PROJECT IMAGE</div>{{ end }}
-        </a>
-        <div class="project-card-body">
-          <div class="card-meta"><span class="project-date">{{ .Date.Format "2006 / 01" }}</span><span class="card-type">ENGINEERING LOG</span></div>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p class="project-description">{{ .Description }}</p>
-          <ul class="tags">{{ range .Params.tags }}<li>{{ . }}</li>{{ end }}</ul>
-        </div>
-      </article>
-    {{ else }}<p>No projects yet. Add a project bundle under <code>content/projects/</code>.</p>{{ end }}
+    {{ partial "project-list.html" $projects }}
   </div>
 </section>
 {{ end }}
